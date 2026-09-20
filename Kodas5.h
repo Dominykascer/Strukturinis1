@@ -1,0 +1,11 @@
+
+
+#ifndef STRUKTURINIS1_KODAS5_H
+#define STRUKTURINIS1_KODAS5_H
+
+
+class Kodas5 {
+};
+
+
+#endif //STRUKTURINIS1_KODAS5_H

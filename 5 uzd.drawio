@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="3_Us81toSY-VHUGXHdgx">
+    <mxGraphModel dx="988" dy="539" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="1criYlgP4hg1DpLise6K-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Pradzia&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="120" x="360" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="1criYlgP4hg1DpLise6K-2" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;shapeInside=1;fixedSize=1;" value="Ivesk 5 skaicius" vertex="1">
+          <mxGeometry height="60" width="120" x="354" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="1criYlgP4hg1DpLise6K-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Kintamuju deklaravimas&lt;div&gt;int a,b,c,d,e&lt;/div&gt;&lt;div&gt;double vidurkis&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="360" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="1criYlgP4hg1DpLise6K-5" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;shapeInside=1;fixedSize=1;" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Duomenu ivedimas&lt;/div&gt;&lt;div&gt;cin&amp;gt;&amp;gt;a&amp;gt;&amp;gt;b&amp;gt;&amp;gt;c&amp;gt;&amp;gt;d&amp;gt;&amp;gt;e&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="150" x="340" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="1criYlgP4hg1DpLise6K-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="vidurkio apskaiciavimas&lt;div&gt;vidurkis= (a+b+c+d+e)/5&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="340" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="1criYlgP4hg1DpLise6K-8" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;shapeInside=1;fixedSize=1;" value="Vidurkio isvedimas" vertex="1">
+          <mxGeometry height="60" width="120" x="340" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="1criYlgP4hg1DpLise6K-9" edge="1" parent="1" source="1criYlgP4hg1DpLise6K-3" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="1criYlgP4hg1DpLise6K-1" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="390" y="260" as="sourcePoint" />
+            <mxPoint x="440" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1criYlgP4hg1DpLise6K-10" edge="1" parent="1" source="1criYlgP4hg1DpLise6K-2" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="1criYlgP4hg1DpLise6K-3" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="410" y="285" as="sourcePoint" />
+            <mxPoint x="410" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1criYlgP4hg1DpLise6K-11" edge="1" parent="1" source="1criYlgP4hg1DpLise6K-5" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="1criYlgP4hg1DpLise6K-2" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="500" y="375" as="sourcePoint" />
+            <mxPoint x="500" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1criYlgP4hg1DpLise6K-12" edge="1" parent="1" source="1criYlgP4hg1DpLise6K-6" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="1criYlgP4hg1DpLise6K-5" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="530" y="445" as="sourcePoint" />
+            <mxPoint x="530" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1criYlgP4hg1DpLise6K-13" edge="1" parent="1" source="1criYlgP4hg1DpLise6K-8" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="1criYlgP4hg1DpLise6K-6" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="520" y="505" as="sourcePoint" />
+            <mxPoint x="520" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1criYlgP4hg1DpLise6K-16" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;" value="Pabaiga" vertex="1">
+          <mxGeometry height="80" width="120" x="340" y="545" as="geometry" />
+        </mxCell>
+        <mxCell id="1criYlgP4hg1DpLise6K-17" edge="1" parent="1" source="1criYlgP4hg1DpLise6K-16" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="1criYlgP4hg1DpLise6K-8" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="570" y="565" as="sourcePoint" />
+            <mxPoint x="570" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
