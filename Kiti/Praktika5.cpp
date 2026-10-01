@@ -5,21 +5,25 @@
 
 using namespace std;
 int main() {
+    const int studentGradesNum = 5;
+    int grade;
     int sum = 0;
-    int studentGradesNum=5, grade;
     int highestGrade = 0;
-    for (int i = 1; i<= studentGradesNum; i++) {
-        cout <<"Iveskite" <<i<<" Studento pazymi"<<endl;
-        cin>>grade;
+
+    for (int i = 1; i <= studentGradesNum; i++) {
+        cout << "Iveskite "<<i<<" studento pazymi"<<endl;
+        cin >> grade;
         sum += grade;
+
         highestGrade = (grade > highestGrade) ? grade : highestGrade;
+
     }
 
-    double average = static_cast<double>(sum) / studentGradesNum;
-    cout<<fixed<<setprecision(2);
-    cout<<"Pazymiu vidurkis: "<<average<<endl;
-    cout<<"Didziausias pazymis: "<<highestGrade<<endl;
+    double averageGrade = static_cast<double>(sum) / studentGradesNum;
 
+    cout <<fixed << setprecision(2)
+        <<"Pazymius vidurkis: "<< averageGrade << endl;
+    cout <<"Didziausias pazymys: "<< highestGrade << endl;
 
 
     return 0;
