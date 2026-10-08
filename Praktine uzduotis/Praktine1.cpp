@@ -21,17 +21,18 @@ int main() {
     const double   INR_Parduoti  = 107.8546;
 
     int choiceM = 0;
-    int choiceV ;
-   string vKodas;
-            double bKursas = 0.0;
-            double pKursas = 0.0;
-            double parKursas = 0.0;
+    int choiceV  ;
+    int choiceP  ;
+    double keitimasG = 0;
+
+
 
     cout<<fixed<<setprecision(2);
- //APSIBREZIMAS
+    //APSIBREZIMAS
 
-//VALIUTOS KEITYKLOS VEIKSMAI
-    do {   //MENIU
+    //VALIUTOS KEITYKLOS VEIKSMAI
+    do {
+        //MENIU
         cout<<"\n - - - VALIUTOS KEITYKLA - - - \n"
         <<"1.Valiutos kurso palyginimas su EUR\n"
         <<"2.Valiutos Pirkimas (EUR -> Pasirinkta valiuta\n"
@@ -47,51 +48,67 @@ int main() {
         if (choiceM<1 || choiceM>4) {
             cout<<"\nKlaida! Si funkcija neegzistuoja. Bandykite dar karta\n"<<endl;
             continue;
-//MENIU
-        }  //VALIUTOS PASIRINKIMAS
+        }
+        //MENIU
+
+        //VALIUTOS PASIRINKIMAS
         cout<<"\nPasirink norima valiuta (1-3): \n"<<endl;
         cout<<"\n1. GBP\n";
         cout<<"\n2. USD\n";
         cout<<"\n3. INR\n";
 
+
         cin>>choiceV;
         if (choiceV<1 || choiceV>3) {
             cout<<"\nKlaida! Si funkcija neegzistuoja. Bandykite dar karta\n";
             continue;
-            //VALIUTOS PASIRINKIMAS
+        }
+        //VALIUTOS PASIRINKIMAS
+
+        //KURSO PALYGINIMAS
+        if (choiceM==1) {
+            if (choiceV==1) {
+                cout<<"GBP palyginus su EUR: "<<GBP_Bendras<<endl;
+                cout<<"GBP pirkimas: "<<GBP_Pirkti<<endl;
+                cout<<"GBP pardavimas : "<<GBP_Parduoti<<endl;
 
 
-            switch (choiceV){
-                case 1:
-                    vKodas = "GBP";
-                    bKursas = GBP_Bendras;
-                    pKursas = GBP_Pirkti;
-                    parKursas = GBP_Parduoti;
-                    break;
-                case 2:
-                    vKodas = "USD";
-                    bKursas = USD_Bendras;
-                    pKursas = USD_Pirkti;
-                    parKursas = USD_Parduoti;
-                    break;
-                case 3:
-                    vKodas = "INR";
-                    bKursas = INR_Bendras;
-                    pKursas = INR_Pirkti;
-                    parKursas = INR_Parduoti;
-                    break;
-
-
-
-
+            } else if (choiceV==2) {
+                cout<<"USD palyginus su EUR: "<<USD_Bendras<<endl;
+                cout<<"USD pirkimas: "<<USD_Pirkti<<endl;
+                cout<<"USD pardavimas : "<<USD_Parduoti<<endl;
+            }else if (choiceV==3) {
+                cout<<"INR palyginus su EUR: "<<INR_Bendras<<endl;
+                cout<<"INR pirkimas: "<<INR_Pirkti<<endl;
+                cout<<"INR pardavimas : "<<INR_Parduoti<<endl;
             }
+        }
+        //KURSO PALYGINIMAS
+
+        //VALIUTOS PIRKIMAS
+
+        if (choiceM==2)
+        if (choiceV==1) {
+            cout<<"\n Ivesk kokia suma noretum issikeisti: \n";
+            cin>>choiceP;
+            keitimasG = choiceP*GBP_Parduoti;
+            cout<<"Sekmingai nusipirkai: "<<keitimasG<<" GBP"<<endl;
+        } else if (choiceV == 2) {
+            keitimasG = choiceP * USD_Parduoti;
+            cout << "Sekmingai nusipirkai: " << keitimasG << " USD" << endl;
+        } else if (choiceV == 3) {
+            keitimasG = choiceP * INR_Parduoti;
+            cout << "Sekmingai nusipirkai: " << keitimasG << " INR" << endl;
         }
 
 
 
+        //VALIUTOS PIRKIMAS
 
-
-}while (choiceM !=4);
+    }while (choiceM !=4);
     //VALIUTOS KEITYKLOS VEIKSMAI
-     return 0;
+    return 0;
 }
+
+
+
