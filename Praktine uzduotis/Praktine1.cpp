@@ -23,11 +23,8 @@ int main() {
     int choiceM = 0;
     int choiceV  ;
     int choiceP  ;
-    double keitimasG = 0;
-
-
-
     cout<<fixed<<setprecision(2);
+
     //APSIBREZIMAS
 
     //VALIUTOS KEITYKLOS VEIKSMAI
@@ -68,45 +65,73 @@ int main() {
         //KURSO PALYGINIMAS
         if (choiceM==1) {
             if (choiceV==1) {
-                cout<<"GBP palyginus su EUR: "<<GBP_Bendras<<endl;
-                cout<<"GBP pirkimas: "<<GBP_Pirkti<<endl;
-                cout<<"GBP pardavimas : "<<GBP_Parduoti<<endl;
+                cout<<"1 EUR = "<<GBP_Bendras<<" GBP"<<endl;
+                cout<<"1 GBP = "<<(Eur/GBP_Bendras)<<" EUR"<<endl;
+
 
 
             } else if (choiceV==2) {
-                cout<<"USD palyginus su EUR: "<<USD_Bendras<<endl;
-                cout<<"USD pirkimas: "<<USD_Pirkti<<endl;
-                cout<<"USD pardavimas : "<<USD_Parduoti<<endl;
+                cout<<"1 EUR = "<<USD_Bendras<<" USD"<<endl;
+                cout<<"1 USD = "<<(Eur/USD_Bendras)<<" EUR"<<endl;
+
             }else if (choiceV==3) {
-                cout<<"INR palyginus su EUR: "<<INR_Bendras<<endl;
-                cout<<"INR pirkimas: "<<INR_Pirkti<<endl;
-                cout<<"INR pardavimas : "<<INR_Parduoti<<endl;
+                cout<<"1 EUR = "<<INR_Bendras<<" INR"<<endl;
+                cout<<"1 INR = "<<(Eur/INR_Bendras)<<" EUR"<<endl;
             }
         }
         //KURSO PALYGINIMAS
 
         //VALIUTOS PIRKIMAS
-
+ double keitimasV = 0;
         if (choiceM==2)
+
         if (choiceV==1) {
             cout<<"\n Ivesk kokia suma noretum issikeisti: \n";
             cin>>choiceP;
-            keitimasG = choiceP*GBP_Parduoti;
-            cout<<"Sekmingai nusipirkai: "<<keitimasG<<" GBP"<<endl;
-        } else if (choiceV == 2) {
-            keitimasG = choiceP * USD_Parduoti;
-            cout << "Sekmingai nusipirkai: " << keitimasG << " USD" << endl;
+            keitimasV = choiceP*GBP_Pirkti;
+            cout<<"Sekmingai issikeitei "<<choiceP<<" EUR -> "<<keitimasV<<" GBP"<<endl;
+        } else if (choiceV == 2){
+            cout<<"\n Ivesk kokia suma noretum issikeisti: \n";
+            cin>>choiceP;
+            keitimasV = choiceP * USD_Pirkti;
+            cout<<"Sekmingai issikeitei "<<choiceP<<" EUR -> "<<keitimasV<<" USD"<<endl;
         } else if (choiceV == 3) {
-            keitimasG = choiceP * INR_Parduoti;
-            cout << "Sekmingai nusipirkai: " << keitimasG << " INR" << endl;
+            cout<<"\n Ivesk kokia suma noretum issikeisti: \n";
+            cin>>choiceP;
+            keitimasV = choiceP * INR_Pirkti;
+            cout<<"Sekmingai issikeitei "<<choiceP<<" EUR -> "<<keitimasV<<" INR"<<endl;
         }
-
-
-
         //VALIUTOS PIRKIMAS
 
+        //VALIUTOS PARDAVIMAS
+        if (choiceM==3) {
+            if (choiceV==1) {
+                cout<<"Iveskite kokia suma norite parduoti: \n";
+                cin>>choiceP;
+                keitimasV=choiceP/GBP_Parduoti;
+                cout<<"Isikeitei "<<choiceP<<" GBP -> "<<keitimasV<<" EUR"<<endl;
+
+
+            }
+            else if (choiceV==2) {
+                cout<<"Iveskite kokia suma norite parduoti: \n";
+                cin>>choiceP;
+                keitimasV=choiceP/USD_Parduoti;
+                cout<<"Isikeitei "<<choiceP<<" USD -> "<<keitimasV<<" EUR"<<endl;
+
+
+            }
+            else if (choiceV==3) {
+                cout<<"Iveskite kokia suma norite parduoti: \n";
+                cin>>choiceP;
+                keitimasV=choiceP/INR_Parduoti;
+                cout<<"Isikeitei "<<choiceP<<" INR -> "<<keitimasV<<" EUR"<<endl;
+
+            }
+        }
+//VALIUTOS PARDAVIMAS
     }while (choiceM !=4);
-    //VALIUTOS KEITYKLOS VEIKSMAI
+
     return 0;
 }
 
