@@ -2,6 +2,7 @@
 #include "Praktine1.h"
 #include <iostream>
 #include <iomanip>
+#include <limits>
 
 using namespace std;
 int main() {
@@ -37,11 +38,18 @@ int main() {
         <<"4.Baigti programos darba\n";
         cout<<"Pasirinkite funkcija (1-4): "<<endl;
         cin>>choiceM;
+        if (cin.fail()) {
+            cout << "\nKlaida! Prasome ivesti skaiciu, o ne raide.\n" << endl;
+            cin.clear(); // Išvalo klaidos būseną
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Išvalo buferį
+            continue;
+        }
         if (choiceM==4) {
             cout<<"\nViso gero!\n";
             break;
 
         }
+
         if (choiceM<1 || choiceM>4) {
             cout<<"\nKlaida! Si funkcija neegzistuoja. Bandykite dar karta\n"<<endl;
             continue;
@@ -56,6 +64,12 @@ int main() {
 
 
         cin>>choiceV;
+        if (cin.fail()) {
+            cout << "\nKlaida! Prasome ivesti skaiciu, o ne raide.\n" << endl;
+            cin.clear(); // Išvalo klaidos būseną
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Išvalo buferį
+            continue;
+        }
         if (choiceV<1 || choiceV>3) {
             cout<<"\nKlaida! Si funkcija neegzistuoja. Bandykite dar karta\n";
             continue;
@@ -83,6 +97,12 @@ int main() {
 
         //VALIUTOS PIRKIMAS
  double keitimasV = 0;
+        if (cin.fail()) {
+            cout << "\nKlaida! Neteisingai ivesta suma.\n" << endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
         if (choiceM==2)
 
         if (choiceV==1) {
@@ -104,6 +124,12 @@ int main() {
         //VALIUTOS PIRKIMAS
 
         //VALIUTOS PARDAVIMAS
+        if (cin.fail()) {
+            cout << "\nKlaida! Neteisingai ivesta suma.\n" << endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
         if (choiceM==3) {
             if (choiceV==1) {
                 cout<<"Iveskite kokia suma norite parduoti: \n";
