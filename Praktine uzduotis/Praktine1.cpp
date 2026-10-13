@@ -5,6 +5,10 @@
 #include <limits>
 
 using namespace std;
+void stars() {
+    for ( int i=0; i<50; i++)
+        cout<<"*";
+}
 int main() {
     //APSIBREZIMAS
     const double Eur = 1;
@@ -23,21 +27,27 @@ int main() {
 
     int choiceM = 0;
     int choiceV  ;
-    int choiceP  ;
+    double choiceP  ;
     cout<<fixed<<setprecision(2);
+
+
 
     //APSIBREZIMAS
 
     //VALIUTOS KEITYKLOS VEIKSMAI
     do {
         //MENIU
+        stars();
         cout<<"\n - - - VALIUTOS KEITYKLA - - - \n"
         <<"1.Valiutos kurso palyginimas su EUR\n"
         <<"2.Valiutos Pirkimas (EUR -> Pasirinkta valiuta\n"
         <<"3.Valiutos Pardavimas ( Pasirinkta valiuta -> EUR\n"
         <<"4.Baigti programos darba\n";
+        stars();
+        cout<<endl;
         cout<<"Pasirinkite funkcija (1-4): "<<endl;
         cin>>choiceM;
+
         if (cin.fail()) {
             cout << "\nKlaida! Prasome ivesti skaiciu, o ne raide.\n" << endl;
             cin.clear(); // Išvalo klaidos būseną
@@ -57,12 +67,13 @@ int main() {
         //MENIU
 
         //VALIUTOS PASIRINKIMAS
-        cout<<"\nPasirink norima valiuta (1-3): \n"<<endl;
-        cout<<"\n1. GBP\n";
+        stars();
+        cout<<"\nPasirink norima valiuta (1-3): \n";
+        cout<<"1. GBP\n";
         cout<<"\n2. USD\n";
         cout<<"\n3. INR\n";
-
-
+        stars();
+        cout<<endl;
         cin>>choiceV;
         if (cin.fail()) {
             cout << "\nKlaida! Prasome ivesti skaiciu, o ne raide.\n" << endl;
