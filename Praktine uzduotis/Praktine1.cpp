@@ -27,7 +27,7 @@ int main() {
 
     int choiceM = 0;
     int choiceV  ;
-    double choiceP  ;
+    double choiceP =0 ;
     cout<<fixed<<setprecision(2);
 
 
@@ -51,7 +51,7 @@ int main() {
         if (cin.fail()) {
             cout << "\nKlaida! Prasome ivesti skaiciu, o ne raide.\n" << endl;
             cin.clear(); // Išvalo klaidos būseną
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Išvalo buferį
+            cin.ignore(10000, '\n'); // Išvalo buferį
             continue;
         }
         if (choiceM==4) {
@@ -107,43 +107,57 @@ int main() {
         //KURSO PALYGINIMAS
 
         //VALIUTOS PIRKIMAS
- double keitimasV = 0;
-        if (cin.fail()) {
-            cout << "\nKlaida! Neteisingai ivesta suma.\n" << endl;
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            continue;
-        }
-        if (choiceM==2)
+        double keitimasV = 0;
 
-        if (choiceV==1) {
-            cout<<"\n Ivesk kokia suma noretum issikeisti: \n";
-            cin>>choiceP;
-            keitimasV = choiceP*GBP_Pirkti;
-            cout<<"Sekmingai issikeitei "<<choiceP<<" EUR -> "<<keitimasV<<" GBP"<<endl;
-        } else if (choiceV == 2){
-            cout<<"\n Ivesk kokia suma noretum issikeisti: \n";
-            cin>>choiceP;
-            keitimasV = choiceP * USD_Pirkti;
-            cout<<"Sekmingai issikeitei "<<choiceP<<" EUR -> "<<keitimasV<<" USD"<<endl;
-        } else if (choiceV == 3) {
-            cout<<"\n Ivesk kokia suma noretum issikeisti: \n";
-            cin>>choiceP;
-            keitimasV = choiceP * INR_Pirkti;
-            cout<<"Sekmingai issikeitei "<<choiceP<<" EUR -> "<<keitimasV<<" INR"<<endl;
+        if (choiceM==2) {
+            if (choiceV==1) {
+                cout<<"\n Ivesk kokia suma noretum issikeisti: \n";
+                if (cin.fail()) {
+                    cout << "\nKlaida! Neteisingai ivesta suma.\n" << endl;
+                    cin.clear();
+                    cin.ignore(10000, '\n');
+                    continue;
+                }
+                cin>>choiceP;
+                keitimasV = choiceP*GBP_Pirkti;
+                cout<<"Sekmingai issikeitei "<<choiceP<<" EUR -> "<<keitimasV<<" GBP"<<endl;
+            } else if (choiceV == 2){
+                cout<<"\n Ivesk kokia suma noretum issikeisti: \n";
+                if (cin.fail()) {
+                    cout << "\nKlaida! Neteisingai ivesta suma.\n" << endl;
+                    cin.clear();
+                    cin.ignore(10000, '\n');
+                    continue;
+                }
+                cin>>choiceP;
+                keitimasV = choiceP * USD_Pirkti;
+                cout<<"Sekmingai issikeitei "<<choiceP<<" EUR -> "<<keitimasV<<" USD"<<endl;
+            } else if (choiceV == 3) {
+                cout<<"\n Ivesk kokia suma noretum issikeisti: \n";
+                if (cin.fail()) {
+                    cout << "\nKlaida! Neteisingai ivesta suma.\n" << endl;
+                    cin.clear();
+                    cin.ignore(10000, '\n');
+                    continue;
+                }
+                cin>>choiceP;
+                keitimasV = choiceP * INR_Pirkti;
+                cout<<"Sekmingai issikeitei "<<choiceP<<" EUR -> "<<keitimasV<<" INR"<<endl;
+            }
         }
         //VALIUTOS PIRKIMAS
 
         //VALIUTOS PARDAVIMAS
-        if (cin.fail()) {
-            cout << "\nKlaida! Neteisingai ivesta suma.\n" << endl;
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            continue;
-        }
+
         if (choiceM==3) {
             if (choiceV==1) {
                 cout<<"Iveskite kokia suma norite parduoti: \n";
+                if (cin.fail()) {
+                    cout << "\nKlaida! Neteisingai ivesta suma.\n" << endl;
+                    cin.clear();
+                    cin.ignore(10000, '\n');
+                    continue;
+                }
                 cin>>choiceP;
                 keitimasV=choiceP/GBP_Parduoti;
                 cout<<"Isikeitei "<<choiceP<<" GBP -> "<<keitimasV<<" EUR"<<endl;
@@ -152,6 +166,12 @@ int main() {
             }
             else if (choiceV==2) {
                 cout<<"Iveskite kokia suma norite parduoti: \n";
+                if (cin.fail()) {
+                    cout << "\nKlaida! Neteisingai ivesta suma.\n" << endl;
+                    cin.clear();
+                    cin.ignore(10000, '\n');
+                    continue;
+                }
                 cin>>choiceP;
                 keitimasV=choiceP/USD_Parduoti;
                 cout<<"Isikeitei "<<choiceP<<" USD -> "<<keitimasV<<" EUR"<<endl;
@@ -160,17 +180,24 @@ int main() {
             }
             else if (choiceV==3) {
                 cout<<"Iveskite kokia suma norite parduoti: \n";
+                if (cin.fail()) {
+                    cout << "\nKlaida! Neteisingai ivesta suma.\n" << endl;
+                    cin.clear();
+                    cin.ignore(10000, '\n');
+                    continue;
+                }
                 cin>>choiceP;
                 keitimasV=choiceP/INR_Parduoti;
                 cout<<"Isikeitei "<<choiceP<<" INR -> "<<keitimasV<<" EUR"<<endl;
 
             }
         }
-//VALIUTOS PARDAVIMAS
+        //VALIUTOS PARDAVIMAS
     }while (choiceM !=4);
 
     return 0;
 }
+
 
 
 
