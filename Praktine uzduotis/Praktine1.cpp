@@ -2,7 +2,6 @@
 #include "Praktine1.h"
 #include <iostream>
 #include <iomanip>
-#include <limits>
 
 using namespace std;
 void stars() {
@@ -49,7 +48,7 @@ int main() {
         cin>>choiceM;
 
         if (cin.fail()) {
-            cout << "\nKlaida! Prasome ivesti skaiciu, o ne raide.\n" << endl;
+            cout << "\n Klaida! Prasome ivesti skaiciu, o ne raide. \n" << endl;
             cin.clear(); // Išvalo klaidos būseną
             cin.ignore(10000, '\n'); // Išvalo buferį
             continue;
@@ -78,7 +77,7 @@ int main() {
         if (cin.fail()) {
             cout << "\nKlaida! Prasome ivesti skaiciu, o ne raide.\n" << endl;
             cin.clear(); // Išvalo klaidos būseną
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Išvalo buferį
+            cin.ignore(10000, '\n'); // Išvalo buferį
             continue;
         }
         if (choiceV<1 || choiceV>3) {
