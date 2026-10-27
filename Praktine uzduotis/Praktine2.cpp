@@ -165,7 +165,6 @@ if (pazymiuSk[esami] == 0) {
     double vidurkis = suma / pazymiuSk[esami];
     cout<<fixed<<setprecision(2);
     cout<<"Mokinio" << vardai[esami]<<" pazymiu vidurkis: "<<vidurkis<<endl;
-
         }
      }
     }
