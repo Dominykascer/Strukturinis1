@@ -107,6 +107,12 @@ int main() {
             } else {
                 cout << "Ivesk mokinio numeri (nuo 1 iki " << mokSk << "): ";
                 cin >> mok;
+                   if (cin.fail()) {
+                        cout << " Klaida! Prasome ivesti skaiciu, o ne raide. \n";
+                        cin.clear(); // Išvalo klaidos būseną
+                        cin.ignore(10000, '\n'); // Išvalo buferį
+                        continue;
+                    }
 
                 if (mok < 1 || mok > mokSk) {
                     cout << "Neteisingas mokinio numeris. Bandykite dar karta\n";
@@ -130,6 +136,14 @@ int main() {
             } else {
                 cout << "Iveskite mokinio numeri (nuo 1 iki " << mokSk << "): ";
                 cin >> mok;
+                if (cin.fail()) {
+                    cout << " Klaida! Prasome ivesti skaiciu, o ne raide. \n";
+                    cin.clear(); // Išvalo klaidos būseną
+                    cin.ignore(10000, '\n'); // Išvalo buferį
+                    continue;
+                }
+
+
 
                 if (mok < 1 || mok > mokSk) {
                     cout << "Neteisingas mokinio numeris. Iveskite skaiciu nuo 1 iki " << mokSk << "\n";
@@ -148,6 +162,12 @@ int main() {
                             while (naujaspaz < 1 || naujaspaz > 10) {
                                 cout << "Neteisingas pazymys! Bandykite dar karta: ";
                                 cin >> naujaspaz;
+                                if (cin.fail()) {
+                                    cout << " Klaida! Prasome ivesti skaiciu, o ne raide. \n";
+                                    cin.clear(); // Išvalo klaidos būseną
+                                    cin.ignore(10000, '\n'); // Išvalo buferį
+                                    continue;
+                                }
                             }
                             pazymiai[ind][paznr - 1] = naujaspaz;
                             cout << "Pazymys atnaujintas!\n";
@@ -162,6 +182,12 @@ int main() {
             } else {
                 cout << "Iveskite mokinio numeri nuo 1 iki " << mokSk << ": ";
                 cin >> mok;
+                if (cin.fail()) {
+                    cout << " Klaida! Prasome ivesti skaiciu, o ne raide. \n";
+                    cin.clear(); // Išvalo klaidos būseną
+                    cin.ignore(10000, '\n'); // Išvalo buferį
+                    continue;
+                }
                 if (mok < 1 || mok > mokSk) {
                     cout << "Neteisingas mokinio numeris. Bandykite dar karta\n";
                 } else {
@@ -186,6 +212,12 @@ int main() {
             } else {
                 cout << "Iveskite mokinio numeri, kuri norite pasalinti (Nuo 1 iki " << mokSk << "): ";
                 cin >> mok;
+                if (cin.fail()) {
+                    cout << " Klaida! Prasome ivesti skaiciu, o ne raide. \n";
+                    cin.clear(); // Išvalo klaidos būseną
+                    cin.ignore(10000, '\n'); // Išvalo buferį
+                    continue;
+                }
                 if (mok < 1 || mok > mokSk) {
                     cout << "Neteisingas mokinio numeris. Bandykite dar karta.\n";
                 } else {
