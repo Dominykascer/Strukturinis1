@@ -8,20 +8,28 @@
 #include <iomanip>
 
 using namespace std;
+void stars() {
+    for ( int i=0; i<50; i++)
+        cout<<"*";
+}
 
 int main() {
+
     // APSIBREZIMAI
     const int MaxM = 100;   // daugiausiai mokiniu
     const int Maxpaz = 10;   // daugiausiai pazymiu vienam mokiniui
     int pazsk, paznr, pasirinkimas, naujaspaz, mok;
+    // APSIBREZIMAI
 
     // MASYVAS
     string vardai[MaxM];
     int pazymiai[MaxM][Maxpaz];
     int pazymiuSk[MaxM] = {0}; // Kiekvieno mokinio turimu pazymiu kiekis
     int mokSk = 0; // Esamas mokiniu skaicius sarase
+    // MASYVAS
 
     do {
+        stars();
         cout << "\n--- MOKINIU PAZYMIU SISTEMA ---\n";
         cout << "1. Ivesti mokini ir jo pazymius.\n";
         cout << "2. Perziureti visu mokiniu pazymius.\n";
@@ -30,6 +38,8 @@ int main() {
         cout << "5. Apskaiciuoti mokinio vidurki.\n";
         cout << "6. Pasalinti mokini.\n";
         cout << "7. Iseiti.\n";
+        stars();
+        cout<<""<<endl;
         cout << "Pasirinkite veiksma (1-7): ";
         cin >> pasirinkimas;
 
@@ -39,9 +49,9 @@ int main() {
             cin.ignore(10000, '\n'); // Išvalo buferį
             continue;
         }
-
+//IVEDIMAS I SISTEMA
         if (pasirinkimas == 1) {
-            if (mokSk >= MaxM) {
+            if (mokSk >= MaxM) { //PATIKRA
                 cout << "Mokiniu limitas pasiektas (" << MaxM << ")! \n";
             } else {
                 cout << "Ivesk mokinio varda: ";
@@ -83,10 +93,14 @@ int main() {
                 cout << "Mokinys pridetas!\n";
             }
         }
+        //IVEDIMAS I SISTEMA
+
+        //MOKINIU SARASAS SU PAZYMIAIS
         else if (pasirinkimas == 2) {
             if (mokSk == 0) {
                 cout << "Sarase nera mokiniu\n";
             } else {
+                stars();
                 cout << "\n--- VISU MOKINIU SARASAS IR JU PAZYMIAI ---\n";
                 for (int i = 0; i < mokSk; i++) {
                     cout << (i + 1) << ". " << vardai[i] << " - Pazymiai: ";
@@ -101,6 +115,9 @@ int main() {
                 }
             }
         }
+        //MOKINIU SARASAS SU PAZYMIAIS
+
+        //MOKINIO PAZYMAI
         else if (pasirinkimas == 3) {
             if (mokSk == 0) {
                 cout << "Sarase nera mokiniu\n";
@@ -118,6 +135,8 @@ int main() {
                     cout << "Neteisingas mokinio numeris. Bandykite dar karta\n";
                 } else {
                     int ind = mok - 1;
+                    stars();
+                    cout<<""<<endl;
                     cout << "Mokinys: " << vardai[ind] << "\nPazymiai: ";
                     if (pazymiuSk[ind] == 0) {
                         cout << "(nera pazymiu)";
@@ -130,6 +149,9 @@ int main() {
                 }
             }
         }
+        //MOKINIO PAZYMAI
+
+        //PAZYMIO ATNAUJINIMAS
         else if (pasirinkimas == 4) {
             if (mokSk == 0) {
                 cout << "Sarase nera mokiniu\n";
@@ -176,6 +198,9 @@ int main() {
                 }
             }
         }
+        //PAZYMIO ATNAUJINIMAS
+
+        //VIDURKIS
         else if (pasirinkimas == 5) {
             if (mokSk == 0) {
                 cout << "Sarase nera mokiniu\n";
@@ -206,6 +231,10 @@ int main() {
                 }
             }
         }
+        //VIDURKIS
+
+
+        //PASALINIMAS
         else if (pasirinkimas == 6) {
             if (mokSk == 0) {
                 cout << "Sarase nera mokiniu\n";
@@ -236,6 +265,7 @@ int main() {
                 }
             }
         }
+        //PASALINIMAS
         else if (pasirinkimas == 7) {
             cout << "Programa uzsidaro. Viso gero!\n";
         }
