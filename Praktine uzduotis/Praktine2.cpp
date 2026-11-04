@@ -51,18 +51,22 @@ int main() {
         }
 //IVEDIMAS I SISTEMA
         if (pasirinkimas == 1) {
-            if (mokSk >= MaxM) { //PATIKRA
+            //PATIKRA
+            if (mokSk >= MaxM) {
                 cout << "Mokiniu limitas pasiektas (" << MaxM << ")! \n";
             } else {
                 cout << "Ivesk mokinio varda: ";
                 cin.ignore();
                cin>>vardai[mokSk];
+                //PATIKRA
 
                 cout << "Ivesk kiek jis tures pazymiu (nuo 1 iki " << Maxpaz << "): ";
                 cin >> pazsk;
                 while (pazsk < 1 || pazsk > Maxpaz) {
                     cout << "Neteisingas pazymiu skaicius. Iveskite is naujo nuo 1 iki " << Maxpaz << ": ";
                     cin >> pazsk;
+
+                    //PATIKRA
                     if (cin.fail()) {
                         cout << " Klaida! Prasome ivesti skaiciu, o ne raide. \n";
                         cin.clear(); // Išvalo klaidos būseną
@@ -176,6 +180,12 @@ int main() {
                     } else {
                         cout << "Iveskite pazymio numeri, kuri norite atnaujinti (Nuo 1 iki " << pazymiuSk[ind] << "): ";
                         cin >> paznr;
+                        if (cin.fail()) {
+                            cout << " Klaida! Prasome ivesti skaiciu, o ne raide. \n";
+                            cin.clear(); // Išvalo klaidos būseną
+                            cin.ignore(10000, '\n'); // Išvalo buferį
+                            continue;
+                        }
                         if (paznr < 1 || paznr > pazymiuSk[ind]) {
                             cout << "Neteisingas pazymio numeris. Bandykite dar karta\n";
                         } else {
