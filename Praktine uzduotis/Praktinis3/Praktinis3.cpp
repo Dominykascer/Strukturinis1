@@ -8,6 +8,9 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+
+
+
 using namespace std;
 
 
@@ -40,18 +43,60 @@ int meniu;
 //APSIBREZIMAI
 
 // -------------FUCNKCIJOS------------------//
-
+            //----Sumos----//
 double eilutessum(double kaina, int kiekis) { //Eilutes suma
 
     return kaina * kiekis;
 }
 
+//----Nuolaida----//
+double nuolaida(double suma, int kiekis) {
+
+    if (kiekis >=NuolaidaK) {
+        double nuolaida = suma * NuolaidaD;
+ suma -= nuolaida;
+    }
+    return suma;
+}
+//----Nuolaida----//
+            //----Sumos----//
+
+//----Kategorijos----//
+
+              //----Kategorijos sumos----//
+void kategorijusumos( const string kategorijos[],
+    const double kainos[],
+    const int kiekiai[],
+    int n){
+    for (int k = 0; k < KATSK; k++) {
+        double kategorijossum = 0;
+
+        for ( int i = 0 ; i < n; i++) {
+            if ( kategorijos[i] == KATEGORIJOS[k]) {
+                double pradineSuma = eilutessum(kainos[i], kiekiai[i]);
+                double galutineSuma = nuolaida(pradineSuma, kiekiai[i]);
+                kategorijossum += galutineSuma;
+            }
+
+        }
+        cout << "Kategorija: " << KATEGORIJOS[k] << endl;
+        cout << "Galutine suma: " << kategorijossum << " EUR" << endl;
+
+
+        cout << "----------------------------" << endl;
+
+    }
+
+}
+                //----Kategorijos sumos----//
+//----Kategorijos----//
+            //----zvaigzd----//
 void stars() {
     for ( int i=0; i<50; i++)
         cout<<"*";
 
 }
-
+            //----zvaigzd----//
 
 // -----------------------------------------//
 
@@ -74,6 +119,8 @@ int main() {
     praktinis3.ignore(1000, '\n');
 
     string e;
+
+
 
 
     // ------------Visos prekes-------------------//
@@ -99,7 +146,7 @@ int main() {
         kiekiai[i] = stoi(kiekisTekstas);
     }
 }
-
+    praktinis3.close();
 do{
     // --------------MENIU---------------//
 stars();
@@ -118,6 +165,12 @@ cin>>meniu;
 
 
 switch (meniu) {
+
+    default:
+        cout << "Neteisingas pasirinkimas!" << endl;
+        break;
+
+
 
     case 1:
          // ------------Prekiu kiekis-----------------//
@@ -138,19 +191,59 @@ switch (meniu) {
     // -----------------------------------------//
        break;
 
-        case 2:
-        cout<<"2"<<endl;
+        case 2: {
+            int p;
+            void stars();
+            cout<<"Pasirink kategorija: "<<endl;
+            for (int k = 0; k < KATSK; k++) {
+                cout<< k + 1<<". "<<KATEGORIJOS[k]<<endl;
+            }
+            cin>>p;
+
+            string pasirinkta = KATEGORIJOS[p - 1];
+            for (int i = 0; i < n; i++) {
+                if (kategorijos[i] == pasirinkta) {
+                    cout << "Preke: " << pavadinimai[i] << endl;
+                    cout << "Kaina: " << kainos[i] << " EUR" << endl;
+                    cout << "Kiekis: " << kiekiai[i] << endl;
+                    cout << "-------------------" << endl;
+
+                }
+            }
+        }
+
+
+
+
         break;
 
         case 3: {
-
+            double bendraSuma = 0;
             for (int i = 0; i < n; i++)
             {
-                double suma = eilutessum(kainos[i], kiekiai[i]);
 
-                cout << pavadinimai[i] << ": " << suma << " EUR" << endl;
+                double pradineSuma = eilutessum(kainos[i], kiekiai[i]);
+                double galutineSuma = nuolaida(pradineSuma, kiekiai[i]);
+                     bendraSuma += galutineSuma;
+
+                cout << "Preke: " << pavadinimai[i] << endl;
+                cout << "Pradine suma: " << pradineSuma << " EUR" << endl;
+                cout << "Galutine suma: " << galutineSuma << " EUR" << endl;
+                cout << "Sutaupyta: " << pradineSuma - galutineSuma << " EUR" << endl;
+
+                cout << "----------------------------" << endl;
+
             }
+
+
+            cout << "-------- BENDRA SUMA: " << bendraSuma <<" ---------"<< endl;
             }
+        break;
+
+    case 4:
+        kategorijusumos(kategorijos, kainos, kiekiai, n);
+
+
         break;
         }
 
