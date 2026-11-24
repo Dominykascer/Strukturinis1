@@ -9,14 +9,7 @@
 #include <string>
 #include <sstream>
 
-
-
 using namespace std;
-
-
-
-
-//APSIBREZIMAI
 
 //------------------KONST--------------------//
 const int MAXP = 100;  //Max produktai
@@ -28,26 +21,22 @@ const string Duomenys = "uzsakymas.txt";
 const string Failas = "ataskaita.txt";
 //------------------KONST--------------------//
 
-//------------------Masyvai--------------------//
-string kategorijos[MAXP];
-string pavadinimai[MAXP];
-
-double kainos[MAXP];
-int kiekiai [MAXP];
-
-
-//------------------Masyvai--------------------//
-
-
-int meniu;
-//APSIBREZIMAI
-
 // -------------FUCNKCIJOS------------------//
-            //----Sumos----//
-double eilutessum(double kaina, int kiekis) { //Eilutes suma
+ //----zvaigzd----//
+void stars() {
+    for ( int i=0; i<50; i++)
+       cout<<"*";
 
+}
+//----zvaigzd----//
+
+
+//=============================Sumos==============================================//
+//----Suma prekiu----//
+double eilutessum(double kaina, int kiekis) {
     return kaina * kiekis;
 }
+//----Suma prekiu----//
 
 //----Nuolaida----//
 double nuolaida(double suma, int kiekis) {
@@ -59,9 +48,10 @@ double nuolaida(double suma, int kiekis) {
     return suma;
 }
 //----Nuolaida----//
-            //----Sumos----//
+//===========================Sumos==============================================//
 
-//----Kategorijos----//
+
+//=====================Kategorijos============================//
 
               //----Kategorijos sumos----//
 void kategorijusumos( const string kategorijos[],
@@ -77,34 +67,104 @@ void kategorijusumos( const string kategorijos[],
                 double galutineSuma = nuolaida(pradineSuma, kiekiai[i]);
                 kategorijossum += galutineSuma;
             }
-
         }
-        cout << "Kategorija: " << KATEGORIJOS[k] << endl;
-        cout << "Galutine suma: " << kategorijossum << " EUR" << endl;
-
-
-        cout << "----------------------------" << endl;
-
     }
-
 }
                 //----Kategorijos sumos----//
-//----Kategorijos----//
-            //----zvaigzd----//
-void stars() {
-    for ( int i=0; i<50; i++)
-        cout<<"*";
+//----Kategorijos pasirinkimas----//
 
+void pasirinkimaskategoriju( const string kategorijos[], const string pavadinimai[],
+    int n, int p) {
+    stars();
+    cout<<endl;
+    cout<<"Pasirink kategorija: "<<endl;
+    for (int k = 0; k < KATSK; k++) {
+        cout<< k + 1<<". "<<KATEGORIJOS[k]<<endl;
+    }
+    cin>>p;
+    if (p < 1 || p > KATSK) {
+        cout << "Neteisingas pasirinkimas!" << endl;
+    }else {
+        string pasirinkta = KATEGORIJOS[p - 1];
+
+        cout << "==================================" << endl;
+        cout << "          " << pasirinkta << endl;
+        cout << "==================================" << endl;
+
+        for (int i = 0; i < n; i++) {
+
+            if (kategorijos[i] == pasirinkta) {
+
+
+                cout << "Preke: " << pavadinimai[i] << endl;
+                cout<<"----------------------------------"<<endl;
+
+            }
+        }
+    }
 }
-            //----zvaigzd----//
 
-// -----------------------------------------//
+//----Kategorijos pasirinkimas----//
+//=====================Kategorijos============================//
+
+//=====================Ataskaita============================//
+void ataskaita( ostream& out,
+    const string kategorijos[], const string pavadinimai[],
+    const int kiekiai[], const double kainos[],
+    int n) {
+    out<<"======================================="<<endl;
+    out<<"==============ATAISKAITA==============="<<endl;
+    out<<"======================================="<<endl;
+    double bendraSuma = 0;
+    out << fixed << setprecision(2);
+        for (int k = 0; k < KATSK; k++) {
+            double kategorijossum = 0;
+
+            out << "\nKATEGORIJA: " << KATEGORIJOS[k] << endl;
+            out << "--------------------------------" << endl;
+
+            for ( int i = 0 ; i < n; i++) {
+                if ( kategorijos[i] == KATEGORIJOS[k]) {
+                    double pradineSuma = eilutessum(kainos[i], kiekiai[i]);
+                    double galutineSuma = nuolaida(pradineSuma, kiekiai[i]);
+                    kategorijossum += galutineSuma;
+                    bendraSuma += galutineSuma;
+
+                    out << "Preke: " << pavadinimai[i] << endl;
+                    out << "Kaina: " << kainos[i] << " EUR" << endl;
+                    out << "Kiekis: " << kiekiai[i] << endl;
+                    out << "Pradine suma: " << pradineSuma << " EUR" << endl;
+                    out << "Galutine suma: " << galutineSuma << " EUR" << endl;
+                    out << "Sutaupyta: " << pradineSuma - galutineSuma << " EUR" << endl;
+                    out << "--------------------------------" << endl;
+                }
+            }
+            out << "================================" << endl;
+            out << "Kategorijos suma: " << kategorijossum << " EUR" << endl;
+            out << "================================" << endl;
+        }
+        out << "BENDRA UZSAKYMO SUMA: " << bendraSuma << " EUR" << endl;
+    }
+//=====================Ataskaita============================//
+// -------------FUCNKCIJOS------------------//
 
 int main() {
 
     cout << fixed << setprecision(2);
-    int n = 0;
+    //------------------Masyvai--------------------//
+    string kategorijos[MAXP];
+    string pavadinimai[MAXP];
 
+    double kainos[MAXP];
+    int kiekiai [MAXP];
+
+
+    //------------------Masyvai--------------------//
+    //----Apsibrez----//
+    int p;
+    int meniu;
+    int n = 0;
+    //----Apsibrez----//
 
 
     ifstream praktinis3(Duomenys);
@@ -147,6 +207,7 @@ int main() {
     }
 }
     praktinis3.close();
+    // ------------Visos prekes-------------------//
 do{
     // --------------MENIU---------------//
 stars();
@@ -165,15 +226,16 @@ cin>>meniu;
 
 
 switch (meniu) {
-
     default:
+        if (meniu > 7 || meniu < 1) {
         cout << "Neteisingas pasirinkimas!" << endl;
+        }
         break;
 
 
 
     case 1:
-         // ------------Prekiu kiekis-----------------//
+        // ------------Prekiu kiekis-----------------//
     {
 
         cout << "\n--- VISOS PREKES ---\n";
@@ -188,65 +250,63 @@ switch (meniu) {
             cout << "-------------------" << endl;
         }
     }
-    // -----------------------------------------//
-       break;
+        // -----------------------------------------//
+        break;
 
-        case 2: {
-            int p;
-            void stars();
-            cout<<"Pasirink kategorija: "<<endl;
-            for (int k = 0; k < KATSK; k++) {
-                cout<< k + 1<<". "<<KATEGORIJOS[k]<<endl;
-            }
-            cin>>p;
+    case 2:
+        pasirinkimaskategoriju(kategorijos, pavadinimai, n, p);
+        break;
 
-            string pasirinkta = KATEGORIJOS[p - 1];
-            for (int i = 0; i < n; i++) {
-                if (kategorijos[i] == pasirinkta) {
-                    cout << "Preke: " << pavadinimai[i] << endl;
-                    cout << "Kaina: " << kainos[i] << " EUR" << endl;
-                    cout << "Kiekis: " << kiekiai[i] << endl;
-                    cout << "-------------------" << endl;
 
-                }
-            }
+
+
+        break;
+
+    case 3: {
+        double bendraSuma = 0;
+        for (int i = 0; i < n; i++)
+        {
+
+            double pradineSuma = eilutessum(kainos[i], kiekiai[i]);
+            double galutineSuma = nuolaida(pradineSuma, kiekiai[i]);
+            bendraSuma += galutineSuma;
+
+            cout << "Preke: " << pavadinimai[i] << endl;
+            cout << "Pradine suma: " << pradineSuma << " EUR" << endl;
+            cout << "Galutine suma: " << galutineSuma << " EUR" << endl;
+            cout << "Sutaupyta: " << pradineSuma - galutineSuma << " EUR" << endl;
+
+            cout << "----------------------------" << endl;
+
         }
 
 
-
-
-        break;
-
-        case 3: {
-            double bendraSuma = 0;
-            for (int i = 0; i < n; i++)
-            {
-
-                double pradineSuma = eilutessum(kainos[i], kiekiai[i]);
-                double galutineSuma = nuolaida(pradineSuma, kiekiai[i]);
-                     bendraSuma += galutineSuma;
-
-                cout << "Preke: " << pavadinimai[i] << endl;
-                cout << "Pradine suma: " << pradineSuma << " EUR" << endl;
-                cout << "Galutine suma: " << galutineSuma << " EUR" << endl;
-                cout << "Sutaupyta: " << pradineSuma - galutineSuma << " EUR" << endl;
-
-                cout << "----------------------------" << endl;
-
-            }
-
-
-            cout << "-------- BENDRA SUMA: " << bendraSuma <<" ---------"<< endl;
-            }
-        break;
+        cout << "-------- BENDRA SUMA: " << bendraSuma <<" ---------"<< endl;
+    }
+    break;
 
     case 4:
         kategorijusumos(kategorijos, kainos, kiekiai, n);
-
-
         break;
-        }
 
+    case 5:
+        ataskaita(cout,kategorijos, pavadinimai, kiekiai, kainos, n );
+        break;
+
+    case 6:{
+        ofstream ataskaitaF(Failas);
+        if (!ataskaitaF.is_open()) {
+            cout<<"Failas nesukurtas"<<endl;
+        }else {
+            ataskaita(ataskaitaF, kategorijos, pavadinimai,
+                  kiekiai, kainos, n);
+            ataskaitaF.close();
+
+            cout<<"Sukurta ataskaita"<<endl;
+        }
+        break;
+    }
+}
 } while (meniu != 7);
 return 0;
 }
