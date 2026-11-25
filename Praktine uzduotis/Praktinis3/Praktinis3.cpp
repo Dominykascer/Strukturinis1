@@ -82,6 +82,7 @@ void pasirinkimaskategoriju( const string kategorijos[], const string pavadinima
         cout<< k + 1<<". "<<KATEGORIJOS[k]<<endl;
     }
     cin>>p;
+
     if (p < 1 || p > KATSK) {
         cout << "Neteisingas pasirinkimas!" << endl;
     }else {
@@ -222,6 +223,12 @@ stars();
     cout<<"7. Iseiti"<<endl;
 cout<<"***************************************************"<<endl;
 cin>>meniu;
+    if (cin.fail()) {
+        cout << "\n Klaida! Prasome ivesti skaiciu, o ne raide. \n" << endl;
+        cin.clear(); // Išvalo klaidos būseną
+        cin.ignore(10000, '\n'); // Išvalo buferį
+        continue;
+    }
     // -----------------------------------------//
 
 
