@@ -223,6 +223,7 @@ stars();
     cout<<"7. Iseiti"<<endl;
 cout<<"***************************************************"<<endl;
 cin>>meniu;
+
     if (cin.fail()) {
         cout << "\n Klaida! Prasome ivesti skaiciu, o ne raide. \n" << endl;
         cin.clear(); // Išvalo klaidos būseną
@@ -230,7 +231,6 @@ cin>>meniu;
         continue;
     }
     // -----------------------------------------//
-
 
 switch (meniu) {
     default:
